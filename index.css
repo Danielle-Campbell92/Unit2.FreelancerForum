@@ -1,5 +1,41 @@
 .freelancers{
-    border: 1px solid black
+    border: 3px solid black;
+    padding: 25px;
+    text-align: center;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: sans-serif;
 }
 
+
+#root {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body{
+    text-align: center;
+}
+
+html{
+    background-color: lightblue;
+}
+
+h1{
+    font-size: xxx-large;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+h2{
+    font-size: x-large;
+}
+
+h3{
+    font-size: xx-large;
+    font-family: sans-serif;
+}
 

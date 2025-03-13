@@ -16,9 +16,11 @@ const freelancers = [
 
 //Create new set of freelancers to randomly generate and appear
 const newFreelancers = [
-     {name: "Danny", occupation: "cat therapist", price: 50},
+    {name: "Danny", occupation: "cat therapist", price: 50},
     {name: "Danielle", occupation: "programmer", price: 80},
-    {name: "Richard", occupation: "dog walker", price: 55}
+    {name: "Richard", occupation: "dog walker", price: 55},
+    {name: "Patrick", occupation: "pet sitter", price: 100},
+    {name: "Shinji", occupation: "cleaner", price: 60}
 ]
 
 function init(){
@@ -30,11 +32,6 @@ function init(){
     h1.innerHTML = "Freelancer Forum"
     console.log(h1);
     root.append(h1);
-
-    const h2 = document.createElement("h2");
-    h2.innerHTML = "The average starting price is $"
-    console.log(h2);
-    root.append(h2);
 
     const h3 = document.createElement("h3");
     h3.innerHTML = "Available Freelancers"
@@ -50,10 +47,16 @@ function init(){
     renderFreelancers()
 
 
-
 }
 
 function renderFreelancers(){
+    const avg = document.querySelector("#average")
+    const h2 = document.createElement("h2");
+    h2.innerHTML = `The average starting price is ${calculateAveragePrice(freelancers).toFixed(2)}`
+    console.log(h2);
+    avg.replaceChildren(h2);
+
+    
     const container = document.querySelector("#freelanceContainer");
     container.innerHTML = ""
     
@@ -67,6 +70,8 @@ function renderFreelancers(){
                             `
         container.append(freeDiv);
     })
+
+
 
 }
 
@@ -84,6 +89,16 @@ const add = setInterval(addFree, 1000);
 setTimeout(() => {
     clearInterval(add)
 }, 10000);
+
+
+//Find the average price
+function calculateAveragePrice(freelancers){
+    const prices = freelancers.map(freelancer => freelancer.price);
+    const sum = prices.reduce((total, price) => total + price, 0);
+    const average = sum / prices.length;
+    return average;
+}
+const averagePrice = calculateAveragePrice(freelancers);
 
 
 
